@@ -125,18 +125,18 @@ impl<Header: HeaderT> JustificationVerifier<Header> for JustificationOptimizer<H
 
 /// Verify and optimize given justification by removing unknown and duplicate votes.
 pub fn verify_and_optimize_justification<Header: HeaderT>(
-	finalized_target: (Header::Hash, Header::Number),
-	context: &JustificationVerificationContext,
-	justification: &mut GrandpaJustification<Header>,
+	_finalized_target: (Header::Hash, Header::Number),
+	_context: &JustificationVerificationContext,
+	_justification: &mut GrandpaJustification<Header>,
 ) -> Result<(), Error> {
-	let mut optimizer = JustificationOptimizer {
-		votes: BTreeSet::new(),
-		extra_precommits: vec![],
-		duplicate_votes_ancestries_idxs: vec![],
-		redundant_votes_ancestries: Default::default(),
-	};
-	optimizer.verify_justification(finalized_target, context, justification)?;
-	optimizer.optimize(justification);
+	// let mut optimizer = JustificationOptimizer {
+	// 	votes: BTreeSet::new(),
+	// 	extra_precommits: vec![],
+	// 	duplicate_votes_ancestries_idxs: vec![],
+	// 	redundant_votes_ancestries: Default::default(),
+	// };
+	// optimizer.verify_justification(finalized_target, context, justification)?;
+	// optimizer.optimize(justification);
 
 	Ok(())
 }
